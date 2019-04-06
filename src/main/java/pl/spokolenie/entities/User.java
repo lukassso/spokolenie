@@ -1,5 +1,6 @@
 package pl.spokolenie.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,6 +33,7 @@ public class User {
     @Column
     private String profileImageURLAdress;
 
+    @JsonIgnore
     @Column
     private String password;
 
