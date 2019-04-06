@@ -1,4 +1,4 @@
-package pl.spokolenie.spokolenie.entities;
+package pl.spokolenie.entities;
 
 import lombok.Getter;
 import lombok.Setter;
