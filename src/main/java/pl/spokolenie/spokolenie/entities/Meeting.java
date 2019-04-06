@@ -5,25 +5,24 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import java.util.ArrayList;
+import javax.persistence.ManyToOne;
+import java.time.LocalDateTime;
 
-@Getter
-@Setter
 @Entity
-public class Group {
+@Setter
+@Getter
+public class Meeting {
     @Column
     private String name;
     @Column
     private String description;
+    @ManyToOne
+    private Group group;
     @Column
-    private User admin;
-    @ManyToMany
-    private ArrayList<User> members;
+    private LocalDateTime startDateTime;
+    @Column
+    private LocalDateTime finishDateTime;
     @Column
     private Chat chat;
 
-    public void addMember(User user) {
-        members.add(user);
-    }
 }
