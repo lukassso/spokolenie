@@ -3,24 +3,33 @@ package pl.spokolenie.spokolenie.entities;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Set;
 
 @Getter
 @Setter
 @Entity
 public class Group {
+
+    @Id
+    @Column
+    @GeneratedValue
+    private long id;
+
     @Column
     private String name;
+
     @Column
     private String description;
-    @Column
+
+    @ManyToOne
     private User admin;
+
     @ManyToMany
-    private ArrayList<User> members;
-    @Column
+    private Set<User> members;
+
+    @OneToOne
     private Chat chat;
 
     public void addMember(User user) {
