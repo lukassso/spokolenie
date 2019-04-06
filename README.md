@@ -1,0 +1,2 @@
+# spokoLENIE
+WAWCODE Hackathon project
