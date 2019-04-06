@@ -1,4 +1,4 @@
-package pl.spokolenie.spokolenie;
+package pl.spokolenie;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
