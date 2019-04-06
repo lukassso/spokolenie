@@ -7,7 +7,7 @@ var runSequence = require('run-sequence');
 gulp.task('browserSync', () => {
   browserSync.init( {
       server: {
-          baseDir: './'
+          baseDir: './static/'
       },
   })
 })
