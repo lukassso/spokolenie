@@ -15,18 +15,6 @@ configurations {
     }
 }
 
-//create a single Jar with all dependencies
-task fatJar(type: Jar) {
-    manifest {
-        attributes 'Implementation-Title': 'Spokolenie Jar',
-                'Implementation-Version': version,
-                'Main-Class': 'pl.spokolenie.spokolenie.SpokolenieApplication'
-    }
-    baseName = project.name + '-all'
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
-}
-
 repositories {
     mavenCentral()
 }
@@ -38,6 +26,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
