@@ -5,11 +5,15 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel=stylesheet type="text/css" href="/styles/style.css">
 </head>
 
 <div id="app">
-    <h1>Spokolenie</h1>
-    <p>
+    <h1 class="header">GRUPY / PROFIL</h1>
+    <p class="group">
         <router-link to="/group">Stwórz nową grupę</router-link>
     </p>
     <!-- route outlet -->
@@ -36,7 +40,7 @@
 
 <template id="group-template2">
     <div>
-        <span>Tworzenie nowej grupy</span>
+        <span class="center">Tworzenie nowej grupy</span>
 
         <div>
             <span>Lokalizacja:</span>
