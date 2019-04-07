@@ -31,5 +31,6 @@ HELP.md
 */node_modules
 src/main/resources/node_modules
 /gulpfile.js
+gulpfile.js
 *application-prod.properties
 *application.properties
