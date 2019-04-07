@@ -51,15 +51,29 @@
     </div>
 </template>
 
+<template id="group-template3">
+    <div>
+        <span class="nazwa"></span>
+        <span class="opis"></span>
+        <span class="autor"></span>
+
+        <div><a href="">Wydarzenia</a></div>
+        <div><a href="">Edytuj grupę</a></div>
+        <div><a href="">Zaproś znajomych</a></div>
+
+    </div>
+</template>
 
 <script>
 
-    const Group = { template: '#group-template'}
+    const Group = { template: '#group-template' }
     const Group2 = { template: '#group-template2'}
+    const Group3 = { template: '#group-template3'}
 
     const routes = [
         { name: 'group', path: '/group', component: Group},
-        { name: 'group2', path: '/group2', component: Group2}
+        { name: 'group2', path: '/group2', component: Group2},
+        { name: 'group3', path: '/group3', component: Group3}
     ]
 
     const router = new VueRouter({
@@ -83,7 +97,15 @@
         var zdjecie = $("#zdjecie").val()
 
         $.post("/group/create", {name: app.$route.params.nazwa, description: app.$route.params.opis,
-            location: lokalizacja, photo: zdjecie});
+            location: lokalizacja, photo: zdjecie}).done(function(data) {
+                app.$router.push({name: 'group3', params: {id: data.id}}, function() {
+                    setTimeout(() => { // setTimeout to put this into event queue
+                        $('.nazwa').text(data.name)
+                        $('.opis').text(data.description)
+                        $('.autor').text(data.admin.emailAdress)
+                    }, 0)
+                });
+        });
     }
 
 
