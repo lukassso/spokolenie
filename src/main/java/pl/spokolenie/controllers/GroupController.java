@@ -29,7 +29,7 @@ public class GroupController {
     @Autowired
     private ChatRepository chatRepository;
 
-    @RequestMapping(name = "/group/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/group/create", method = RequestMethod.POST)
     public Group createGroup(@RequestParam("name") String name, @RequestParam("description") String description,
                              @RequestParam("location") String location, @RequestParam("photo") String photo) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
