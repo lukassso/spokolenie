@@ -52,3 +52,20 @@ input.input {
     background-color: black!important;
     border-bottom: 2px;
 }
+
+.subtitle {
+    font-size: 35px;
+}
+
+.group-content {
+    text-align: left;
+    margin-left: 40px;
+}
+
+.group-content span {
+    font-size: 30px;
+}
+
+.group-content input {
+
+}
