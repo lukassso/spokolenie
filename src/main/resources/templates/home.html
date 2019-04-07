@@ -63,11 +63,7 @@
         <span class="opis"></span>
         <span class="autor"></span>
 
-        <div>
-            <router-link :to="{name: 'meeting', params: { groupId: app.$route.params.id }}">
-                Stwórz nowe wydarzenie
-            </router-link>
-        </div>
+        <div><a href="">Stwórz nowe wydarzenie</a></div>
         <div><a href="">Edytuj grupę</a></div>
         <div><a href="">Zaproś znajomych</a></div>
 
@@ -149,6 +145,7 @@
 
         $.post("/group/create", {name: app.$route.params.nazwa, description: app.$route.params.opis,
             location: lokalizacja, photo: zdjecie}).done(function(data) {
+            setTimeout(() => { // setTimeout to put this into event queue
                 app.$router.push({name: 'group3', params: {id: data.id}}, function() {
                     setTimeout(() => { // setTimeout to put this into event queue
                         $('.nazwa').text(data.name)
@@ -156,6 +153,8 @@
                         $('.autor').text(data.admin.emailAdress)
                     }, 0)
                 });
+            }, 0)
+
         });
     }
 
@@ -163,17 +162,17 @@
         var name = $("#name").val()
         var description = $("#description").val()
 
-        app.$router.push({name: 'meeting2', params: {name: name, description: description, groupId: app.$route.params.groupId}})
+        app.$router.push({name: 'meeting2', params: {name: name, description: description, groupId: 2}})
     }
 
     function saveMeetingData() {
         const dateFrom = $("#dateFrom").val();
         const dateTo = $("#dateTo").val();
-        const groupId = app.$route.params.groupId;
+        const groupId = app.$router.params.groupId;
 
         $.post("/group/" + groupId + "/meeting/create", {
-            name: app.$route.params.name,
-            description: app.$route.params.description,
+            name: app.$router.params.name,
+            description: app.$router.params.description,
             startDateTime: dateFrom,
             finishDateTime: dateTo
         }).done(function(data) {
