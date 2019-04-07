@@ -1,6 +1,7 @@
 package pl.spokolenie.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @Setter
 @Getter
+@NoArgsConstructor
 public class Meeting {
 
     @Id
@@ -27,16 +29,16 @@ public class Meeting {
     private Group group;
 
     @Column
-    private LocalDateTime startDateTime;
+    private String startDateTime;
 
     @Column
-    private LocalDateTime finishDateTime;
+    private String finishDateTime;
 
     @OneToOne
     private Chat chat;
 
     public Meeting(String name, String description, Group group, Chat chat,
-                   LocalDateTime startDateTime, LocalDateTime finishDateTime)
+                   String startDateTime, String finishDateTime)
             throws DateTimeException, NullPointerException {
 
         if (name == null)
@@ -51,11 +53,6 @@ public class Meeting {
             throw new DateTimeException("startDateTime is null");
         if (finishDateTime == null)
             throw new DateTimeException("finishDateTime is null");
-
-        if (startDateTime.isBefore(LocalDateTime.now()))
-            throw new DateTimeException("startTimeDate is before now");
-        if (!startDateTime.isBefore(finishDateTime))
-            throw new DateTimeException("finishDateTime must be later than startDateTime");
 
         this.name = name;
         this.description = description;
