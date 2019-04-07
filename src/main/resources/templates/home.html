@@ -39,12 +39,12 @@
         <span>Tworzenie nowej grupy</span>
 
         <div>
-            <span>Nazwa grupy:</span>
-            <input id="asd" type="text" name="nazwa"/>
+            <span>Lokalizacja:</span>
+            <input id="lokalizacja" type="text" name="lokalizacja"/>
         </div>
         <div>
-            <span>Opis grupy:</span>
-            <input id="dsa" type="text" name="opis"/>
+            <span>Adres zdjęcia:</span>
+            <input id="zdjecie" type="text" name="zdjecie"/>
         </div>
 
         <button onclick="saveGroupData()">Dalej</button>
@@ -58,8 +58,8 @@
     const Group2 = { template: '#group-template2'}
 
     const routes = [
-        { path: '/group', component: Group },
-        { path: '/group2', component: Group2, props: true}
+        { name: 'group', path: '/group', component: Group},
+        { name: 'group2', path: '/group2', component: Group2}
     ]
 
     const router = new VueRouter({
@@ -72,14 +72,18 @@
 
 
     function saveBasicGroupData() {
-        var nazwa = console.log($("#nazwa").val())
-        var opis = console.log($("#opis").val())
+        var nazwa = $("#nazwa").val()
+        var opis = $("#opis").val()
 
-        router.push({path: '/group2', params: {nazwa: nazwa, opis: opis}})
+        app.$router.push({name: 'group2', params: {nazwa: nazwa, opis: opis}})
     }
 
     function saveGroupData() {
-        console.log(this);
+        var lokalizacja = $("#lokalizacja").val()
+        var zdjecie = $("#zdjecie").val()
+
+        $.post("/group/create", {name: app.$route.params.nazwa, description: app.$route.params.opis,
+            location: lokalizacja, photo: zdjecie});
     }
 
 
