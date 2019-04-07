@@ -30,8 +30,8 @@ public class MeetingController {
 
     @RequestMapping(value = "group/{groupId}/meeting/create", method = RequestMethod.POST)
     public Meeting createMeeting(@PathVariable("groupId") long groupId, @RequestParam("name") String name, @RequestParam("description") String description,
-                                 @RequestParam("startDateTime") LocalDateTime startDateTime,
-                                 @RequestParam("finishDateTime") LocalDateTime finishDateTime) {
+                                 @RequestParam("startDateTime") String startDateTime,
+                                 @RequestParam("finishDateTime") String finishDateTime) {
 
         Group group = groupRepository.findById(groupId).get();
 
