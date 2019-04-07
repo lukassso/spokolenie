@@ -64,7 +64,7 @@
         <span class="autor"></span>
 
         <div>
-            <router-link :to="{name: 'meeting', params: { groupId: 1 }}">
+            <router-link :to="{name: 'meeting', params: { groupId: app.$route.params.id }}">
                 Stwórz nowe wydarzenie
             </router-link>
         </div>
@@ -100,7 +100,7 @@
             <input id="dateFrom" type="text" name="dateFrom"/>
         </div>
         <div>
-            <span>Czas rozpoczęcia:</span>
+            <span>Czas zakończenia:</span>
             <input id="dateTo" type="text" name="dateTo"/>
         </div>
 
