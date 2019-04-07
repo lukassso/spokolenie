@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests().antMatchers("/", "/login", "/resource/**").permitAll()
                 .and()
                 .formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password").permitAll()
-                .loginProcessingUrl("/home")
+                .loginProcessingUrl("/doLogin")
                 .successForwardUrl("/home")
                 .failureUrl("/loginFailed")
                 .and()

@@ -4,6 +4,7 @@
 <head>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <div id="app">
@@ -17,18 +18,48 @@
 </div>
 
 <template id="group-template">
-<span>Tworzenie nowej grupy</span>
+    <div>
+        <span>Tworzenie nowej grupy</span>
+
+        <div>
+            <span>Nazwa grupy:</span>
+            <input id="nazwa" type="text" name="nazwa"/>
+        </div>
+        <div>
+            <span>Opis grupy:</span>
+            <input id="opis" type="text" name="opis"/>
+        </div>
+
+        <button onclick="saveBasicGroupData()">Dalej</button>
+    </div>
 </template>
+
+<template id="group-template2">
+    <div>
+        <span>Tworzenie nowej grupy</span>
+
+        <div>
+            <span>Nazwa grupy:</span>
+            <input id="asd" type="text" name="nazwa"/>
+        </div>
+        <div>
+            <span>Opis grupy:</span>
+            <input id="dsa" type="text" name="opis"/>
+        </div>
+
+        <button onclick="saveGroupData()">Dalej</button>
+    </div>
+</template>
+
 
 <script>
 
-    const Group = { template: '#group-template' }
-    const Group2 = { template: '/html/group.html' }
-    const Group3 = { template: '/html/group.html' }
+    const Group = { template: '#group-template'}
+    const Group2 = { template: '#group-template2'}
 
     const routes = [
         { path: '/group', component: Group },
-        { path: '/group2', component: Group2 }
+        { path: '/group2', component: Group2, props: true}
     ]
 
     const router = new VueRouter({
@@ -38,6 +69,18 @@
     const app = new Vue({
         router
     }).$mount('#app')
+
+
+    function saveBasicGroupData() {
+        var nazwa = console.log($("#nazwa").val())
+        var opis = console.log($("#opis").val())
+
+        router.push({path: '/group2', params: {nazwa: nazwa, opis: opis}})
+    }
+
+    function saveGroupData() {
+        console.log(this);
+    }
 
 
 </script>
