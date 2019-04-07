@@ -5,12 +5,16 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel=stylesheet type="text/css" href="/styles/style.css">
 </head>
 
-<div id="app">
-    <h1>Spokolenie</h1>
-    <p>
-        <router-link to="/group">Stwórz nową grupę</router-link>
+<div id="app" style="text-align: center">
+    <span class="subtitle">Dołącz do grup, aby brać udział w aktywnościach lub stwórz swoją</span>
+    <p class="group">
+        <router-link to="/group" class="btn">Stwórz nową grupę</router-link>
     </p>
     <!-- route outlet -->
     <!-- component matched by the route will render here -->
@@ -19,15 +23,17 @@
 
 <template id="group-template">
     <div>
-        <span>Tworzenie nowej grupy</span>
+        <div class="group-content">
+            <span>Tworzenie nowej grupy</span>
 
-        <div>
-            <span>Nazwa grupy:</span>
-            <input id="nazwa" type="text" name="nazwa"/>
-        </div>
-        <div>
-            <span>Opis grupy:</span>
-            <input id="opis" type="text" name="opis"/>
+            <div>
+                <span>Nazwa grupy:</span>
+                <input id="nazwa" type="text" name="nazwa"/>
+            </div>
+            <div>
+                <span>Opis grupy:</span>
+                <input id="opis" type="text" name="opis"/>
+            </div>
         </div>
 
         <button onclick="saveBasicGroupData()">Dalej</button>
@@ -35,8 +41,8 @@
 </template>
 
 <template id="group-template2">
-    <div>
-        <span>Tworzenie nowej grupy</span>
+    <div class="group-content">
+        <span class="center">Tworzenie nowej grupy</span>
 
         <div>
             <span>Lokalizacja:</span>
@@ -52,7 +58,7 @@
 </template>
 
 <template id="group-template3">
-    <div>
+    <div class="group-content">
         <span class="nazwa"></span>
         <span class="opis"></span>
         <span class="autor"></span>
