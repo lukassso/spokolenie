@@ -7,22 +7,22 @@ var runSequence = require('run-sequence');
 gulp.task('browserSync', () => {
   browserSync.init( {
       server: {
-          baseDir: './static/'
+          baseDir: './templates/'
       },
   })
 })
 gulp.task('sass', () => {
-  return gulp.src('app/sass/**/*.scss')
+  return gulp.src('static/sass/**/*.scss')
     .pipe(sass()) // Converts Sass to CSS with gulp-sass
-    .pipe(gulp.dest('app/css'))
+    .pipe(gulp.dest('static/styles/'))
     .pipe(browserSync.reload({
       stream: true
     }))
 });
 gulp.task('watch', ['browserSync', 'sass'], () => {
-  gulp.watch('app/sass/**/*.scss', ['sass']);
+  gulp.watch('static/sass/**/*.scss', ['sass']);
   gulp.watch('**/*.html', browserSync.reload);
-  gulp.watch('app/js/**/*.js', browserSync.reload);
+  gulp.watch('static/js/*.js', browserSync.reload);
 });
 gulp.task('clean:dist', () => {
   return del.sync('dist');
