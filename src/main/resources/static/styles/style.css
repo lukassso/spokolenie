@@ -1,14 +1,14 @@
 html, body {
     background-color: black;
     font: helvetica;
-    font-color: white !important;
+    color: white !important;
     font-size: 20px;
     padding: 20px;
 }
 
 .card {
     background-color: black;
-    font-color: white;
+    color: white;
     width: 100%;
 }
 
@@ -28,4 +28,8 @@ button, .btn, input {
 
 button, .btn {
     background: #fc642f;
+}
+
+h1 {
+    color: #fc642f;
 }
