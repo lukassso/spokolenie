@@ -1,0 +1,45 @@
+html {
+    background-color: black;
+}
+
+.card {
+    margin: 15px;
+}
+
+.container {
+    text-align: center;
+}
+
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100vh;
+    color: white;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background: #fe4b12;
+
+}
+.hero-banner {
+    margin: 0;
+    display: block;
+    background: black;
+}
+.box-hero {
+   
+}
+.box-hero img {
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 100;
+}

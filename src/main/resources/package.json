@@ -16,23 +16,24 @@
     "url": "https://github.com/jurekpawlikowski/spokolenie/issues"
   },
   "homepage": "https://github.com/jurekpawlikowski/spokolenie#readme",
-  "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-babili": "^0.1.4",
-    "gulp-cache": "^1.1.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-cssnano": "^2.1.3",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-useref": "^3.1.6",
-    "gulp-util": "^3.0.8",
-    "run-sequence": "^2.2.1"
-  },
   "dependencies": {
-    "bootstrap": "^4.3.1"
+    "@fortawesome/fontawesome-free": "5.8.1",
+    "bootstrap": "4.3.1",
+    "jquery": "3.3.1",
+    "jquery.easing": "^1.4.1",
+    "simple-line-icons": "2.4.1"
+  },
+  "devDependencies": {
+    "browser-sync": "2.26.3",
+    "del": "4.0.0",
+    "gulp": "4.0.0",
+    "gulp-autoprefixer": "6.0.0",
+    "gulp-clean-css": "4.0.0",
+    "gulp-header": "2.0.7",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "1.4.0",
+    "gulp-sass": "4.0.2",
+    "gulp-uglify": "3.0.2",
+    "merge-stream": "^1.0.1"
   }
 }
