@@ -35,7 +35,9 @@ public class MeetingController {
 
         Group group = groupRepository.findById(groupId).get();
 
-        Meeting newMeeting = new Meeting(name, description, group, new Chat(), startDateTime, finishDateTime );
+        Chat chat = new Chat();
+        chatRepository.save(chat);
+        Meeting newMeeting = new Meeting(name, description, group, chat, startDateTime, finishDateTime );
 
         return meetingRepository.save(newMeeting);
     }
