@@ -1,23 +1,32 @@
-<div class="panel-body">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Spokolenie</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel=stylesheet type="text/css" href="/styles/style.css">
+</head>
+<body>
+<h1 class="header center">ZALOGUJ SIĘ</h1>
+<div class="card panel-body wrapper">
     <form action="doLogin" method="post">
-        <fieldset>
-            <legend>Please sign in</legend>
-            <c:if test="${not empty error}">
-                <div class="alert alert-danger">
-                    <spring:message code="AbstractUserDetailsAuthenticationProvider.badCredentials"/>
-                    <br/>
-                </div>
-            </c:if>
-            <div class="form-group">
-                <input class="form:input-large" placeholder="User Name"
-                       name='username' type="text">
-            </div>
-            <div class="form-group">
-                <input class=" form:input-large" placeholder="Password"
-                       name='password' type="password" value="">
-            </div>
-            <input class="btn" type="submit"
-                   value="Login">
-        </fieldset>
+        <legend class="center">Jeszcze nie jesteś użytkownikiem? <a href="/register">Zmień to!</a></legend>
+        <div class="form-group">
+            <div>Email</div>
+            <input class="input" placeholder="twój@mail.com"
+                   name='username' type="text">
+        </div>
+        <div class="form-group">
+            <div>Hasło</div>
+            <input class="input" placeholder="Wpisz hasło"
+                   name='password' type="password" value="">
+        </div>
+        <div><a href="#">Nie pamiętam hasła</a></div>
+        <input class="btn" type="submit" value="Dalej">
     </form>
+    <button class="btn" onclick="history.back()">Wróć</button>
 </div>
+</body>
+</html>

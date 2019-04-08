@@ -22,6 +22,12 @@ public class Group {
     @Column
     private String description;
 
+    @Column
+    private String location;
+
+    @Column
+    private String photo;
+
     @ManyToOne
     private User admin;
 
